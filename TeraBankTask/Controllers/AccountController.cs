@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using TeraBankTask.API.Modules;
 using TeraBankTask.Controllers;
 using TeraBankTask.DTO;
