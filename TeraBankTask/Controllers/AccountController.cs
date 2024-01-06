@@ -24,7 +24,6 @@ public class AccountController : Controller
 
     [HttpPost]
     [Route("register")]
-    [AllowAnonymous]
     public IActionResult Create([FromForm] RegisterViewModel registerViewModel)
     {
         try
@@ -55,7 +54,6 @@ public class AccountController : Controller
 
     [HttpPost]
     [Route("login")]
-    [AllowAnonymous]
     public IActionResult Login([FromForm] LoginViewModel loginViewModel)
     {
         try
