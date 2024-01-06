@@ -3,15 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeraBankTask.API", "TeraBankTask\TeraBankTask.API.csproj", "{CAC91CE5-4E95-4FA6-9749-EDDB64E52DCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeraBankTask.API", "TeraBankTask\TeraBankTask.API.csproj", "{CAC91CE5-4E95-4FA6-9749-EDDB64E52DCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeraBankTask.Repositories", "TeraBankTask.Repository\TeraBankTask.Repositories.csproj", "{A07597DC-BED1-4D63-AB8B-00CF87713188}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeraBankTask.Repositories", "TeraBankTask.Repository\TeraBankTask.Repositories.csproj", "{A07597DC-BED1-4D63-AB8B-00CF87713188}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeraBankTask.Services", "TeraBankTask.Services\TeraBankTask.Services.csproj", "{116E60AC-E6CF-43D2-9270-3F8E6E624AB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeraBankTask.Services", "TeraBankTask.Services\TeraBankTask.Services.csproj", "{116E60AC-E6CF-43D2-9270-3F8E6E624AB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeraBankTask.Facade", "TeraBankTask.Facade\TeraBankTask.Facade.csproj", "{153B3B83-C23D-498D-B36B-C608AB9E84AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeraBankTask.Facade", "TeraBankTask.Facade\TeraBankTask.Facade.csproj", "{153B3B83-C23D-498D-B36B-C608AB9E84AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeraBankTask.DTO", "TeraBankTask.DTO\TeraBankTask.DTO.csproj", "{C86F9914-2BD7-4EA4-BE56-E96825D04D5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeraBankTask.DTO", "TeraBankTask.DTO\TeraBankTask.DTO.csproj", "{C86F9914-2BD7-4EA4-BE56-E96825D04D5F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{9FAF0E38-6E81-48B9-AE39-AB14757A7D1F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{C298C69F-4E82-4D9B-A9C4-52986473917B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{BA3BEF68-C22B-4CB0-88E6-0D5CB0F1F449}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{EA372487-1D2B-4CE4-837B-981349B85F32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +50,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CAC91CE5-4E95-4FA6-9749-EDDB64E52DCC} = {EA372487-1D2B-4CE4-837B-981349B85F32}
+		{A07597DC-BED1-4D63-AB8B-00CF87713188} = {C298C69F-4E82-4D9B-A9C4-52986473917B}
+		{116E60AC-E6CF-43D2-9270-3F8E6E624AB6} = {BA3BEF68-C22B-4CB0-88E6-0D5CB0F1F449}
+		{153B3B83-C23D-498D-B36B-C608AB9E84AE} = {9FAF0E38-6E81-48B9-AE39-AB14757A7D1F}
+		{C86F9914-2BD7-4EA4-BE56-E96825D04D5F} = {9FAF0E38-6E81-48B9-AE39-AB14757A7D1F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B98ABA01-3C69-44AA-B7B4-FFB79985C30C}

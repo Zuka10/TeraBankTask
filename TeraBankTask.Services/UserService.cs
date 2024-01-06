@@ -133,10 +133,12 @@ public class UserService : IUserService
     private bool Exists(string accountNumber)
     {
         var exists = _unitOfWork.UserAccountRepository.Find(u => u.AccountNumber == accountNumber);
+
         if(exists != null)
         {
             return true;
         }
+
         return false;
     }
 
