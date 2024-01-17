@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using MediatR;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -22,7 +23,7 @@ public static class Startup
 
         services.AddSwaggerGen(c =>
         {
-            c.SwaggerDoc("v1", new OpenApiInfo { Title = "CallAppTask API", Version = "v1" });
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "TeraBankTask API", Version = "v1" });
 
             var securityScheme = new OpenApiSecurityScheme
             {
@@ -54,6 +55,7 @@ public static class Startup
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IUserAccountService, UserAccountService>();
+        services.AddMediatR(typeof(MediatREntrypoint).Assembly);
 
         services.AddAuthentication(options =>
         {
@@ -84,7 +86,7 @@ public static class Startup
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "CallAppTask API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "TeraBankTask API V1");
                 c.OAuthClientId("swagger-ui");
                 c.OAuthAppName("Swagger UI");
             });
