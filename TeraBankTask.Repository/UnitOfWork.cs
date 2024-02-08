@@ -12,6 +12,9 @@ public class UnitOfWork : IUnitOfWork
     private readonly ILogger<UnitOfWork> _logger;
     private readonly Lazy<IUserRepository> _userRepository;
     private readonly Lazy<IUserAccountRepository> _userAccountRepository;
+    private readonly Lazy<IDepositRepository> _depositRepository;
+    private readonly Lazy<IWithdrawRepository> _withdrawRepository;
+    private readonly Lazy<ITransferRepository> _transferRepository;
 
     public UnitOfWork(TeraBankTaskDbContext context, ILogger<UnitOfWork> logger)
     {
@@ -19,10 +22,16 @@ public class UnitOfWork : IUnitOfWork
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _userRepository = new Lazy<IUserRepository>(() => new UserRepository(context));
         _userAccountRepository = new Lazy<IUserAccountRepository>(() => new UserAccountRepository(context));
+        _depositRepository = new Lazy<IDepositRepository>(() => new DepositRepository(context));
+        _withdrawRepository = new Lazy<IWithdrawRepository>(() => new WithdrawRepositry(context));
+        _transferRepository = new Lazy<ITransferRepository>(() => new TransferRepository(context));
     }
 
     public IUserRepository UserRepository => _userRepository.Value;
     public IUserAccountRepository UserAccountRepository => _userAccountRepository.Value;
+    public IDepositRepository DepositRepository => _depositRepository.Value;
+    public IWithdrawRepository WithdrawRepository => _withdrawRepository.Value;
+    public ITransferRepository TransferRepository => _transferRepository.Value;
 
     public void BeginTransaction()
     {
