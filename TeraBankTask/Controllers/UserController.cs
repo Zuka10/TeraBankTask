@@ -18,6 +18,7 @@ public class UserController : ControllerBase
     }
 
     [HttpGet]
+    [Route("getAllUser")]
     public IEnumerable<User> GetAll()
     {
         return userService.GetAll();
@@ -36,6 +37,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPut]
+    [Route("updateUser")]
     public IActionResult Update(User user)
     {
         if (user == null)
@@ -55,6 +57,7 @@ public class UserController : ControllerBase
     }
 
     [HttpDelete]
+    [Route("deleteUserById")]
     public IActionResult Delete(int id)
     {
         var user = userService.GetById(id);

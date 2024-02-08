@@ -63,7 +63,16 @@ public class AccountController : Controller
             {
                 var token = tokenService.GenerateToken(authenticatedCustomer);
 
-                return Ok("Bearer " + token);
+                var cookieOptions = new CookieOptions
+                {
+                    HttpOnly = true,
+                    SameSite = SameSiteMode.None,
+                    Secure = true
+                };
+                Response.Cookies.Append("token", token, cookieOptions);
+
+
+                return Ok("Login successful\n" + authenticatedCustomer.Id);
             }
         }
         catch (Exception ex)
@@ -73,5 +82,23 @@ public class AccountController : Controller
         }
 
         return BadRequest("Email or password is incorrect");
+    }
+
+    [HttpPost]
+    [Route("logout")]
+    public IActionResult Logout()
+    {
+        try
+        {
+            // Remove the authentication cookie
+            Response.Cookies.Delete("token");
+
+            return Ok("Logout successful");
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex.Message);
+            return BadRequest(ex.Message);
+        }
     }
 }

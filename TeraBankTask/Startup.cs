@@ -59,8 +59,15 @@ public static class Startup
         {
             options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
             options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-        }).AddJwtBearer(options =>
+        }).AddCookie(options =>
+          {
+              options.Cookie.Name = "Cookietoken";
+          })
+        .AddJwtBearer(options =>
         {
+            options.RequireHttpsMetadata = false;
+            options.SaveToken = true;
+
             options.TokenValidationParameters = new TokenValidationParameters
             {
                 ValidateIssuer = true,
@@ -70,6 +77,14 @@ public static class Startup
                 ValidIssuer = configuration["Jwt:Issuer"],
                 ValidAudience = configuration["Jwt:Audience"],
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:SecretKey"]!))
+            };
+            options.Events = new JwtBearerEvents
+            {
+                OnMessageReceived = context =>
+                {
+                    context.Token = context.Request.Cookies["token"];
+                    return Task.CompletedTask;
+                }
             };
         });
 
